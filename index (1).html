@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hoja de Vida</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+
+  <div class="letterhead">
+    <span class="mark">Hoja de Vida &middot; portafolio personal</span>
+  </div>
+
+  <div class="folder">
+    <div class="tabs" role="tablist">
+      <button class="tab active" data-tab="portafolio" type="button">Portafolio</button>
+      <button class="tab" data-tab="academica" type="button">Historia Académica</button>
+      <button class="tab" data-tab="laboral" type="button">Historial Laboral</button>
+      <button class="tab" data-tab="habilidades" type="button">Habilidades</button>
+    </div>
+
+    <div class="page">
+
+      <!-- PORTAFOLIO -->
+      <section class="panel active" id="panel-portafolio">
+        <div class="profile-top">
+          <label class="photo" id="photoWrap">
+            <span id="photoPlaceholder">Foto de perfil</span>
+            <input type="file" id="photoInput" accept="image/*">
+          </label>
+          <div class="profile-id">
+            <h1 class="name-field" contenteditable="true" data-placeholder="Nombre completo" id="fieldName"></h1>
+            <div class="headline-field" contenteditable="true" data-placeholder="Perfil profesional" id="fieldHeadline"></div>
+          </div>
+        </div>
+
+        <div class="bio-field" contenteditable="true" data-placeholder="Aquí irá la presentación personal." id="fieldBio"></div>
+
+        <div class="contact-grid">
+          <div class="contact-row">
+            <span class="label">Correo</span>
+            <span contenteditable="true" data-placeholder="Correo electrónico" id="fieldEmail"></span>
+          </div>
+          <div class="contact-row">
+            <span class="label">Teléfono</span>
+            <span contenteditable="true" data-placeholder="Número de teléfono" id="fieldPhone"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- HISTORIA ACADÉMICA -->
+      <section class="panel" id="panel-academica">
+        <div class="section-head">
+          <h2>Historia Académica</h2>
+          <button class="add-btn" type="button" data-add="education">+ Agregar estudio</button>
+        </div>
+
+        <form class="entry-form" id="form-education">
+          <h3 id="form-education-title">Agregar estudio</h3>
+          <div class="field-grid">
+            <div class="field"><label>Institución</label><input type="text" id="edu-inst" placeholder="Escriba la institución"></div>
+            <div class="field"><label>Programa</label><input type="text" id="edu-prog" placeholder="Escriba el programa"></div>
+            <div class="field"><label>Año</label><input type="text" id="edu-year" placeholder="Escriba el año"></div>
+          </div>
+          <div class="field"><label>Descripción</label><textarea id="edu-desc" placeholder="Detalles, logros, énfasis..."></textarea></div>
+          <div class="form-actions">
+            <button type="button" class="btn-ghost" data-cancel="education">Cancelar</button>
+            <button type="button" class="btn-primary" data-save="education">Guardar</button>
+          </div>
+        </form>
+
+        <div class="entry-list" id="list-education"></div>
+      </section>
+
+      <!-- HISTORIAL LABORAL -->
+      <section class="panel" id="panel-laboral">
+        <div class="section-head">
+          <h2>Historial Laboral</h2>
+          <button class="add-btn" type="button" data-add="job">+ Agregar experiencia</button>
+        </div>
+
+        <form class="entry-form" id="form-job">
+          <h3 id="form-job-title">Agregar experiencia laboral</h3>
+          <div class="field-grid">
+            <div class="field"><label>Empresa</label><input type="text" id="job-company" placeholder="Escriba la empresa"></div>
+            <div class="field"><label>Cargo</label><input type="text" id="job-role" placeholder="Escriba el cargo"></div>
+            <div class="field"><label>Periodo</label><input type="text" id="job-period" placeholder="Ejemplo: 2024 - 2025"></div>
+          </div>
+          <div class="field"><label>Descripción</label><textarea id="job-desc" placeholder="Responsabilidades, logros..."></textarea></div>
+          <div class="form-actions">
+            <button type="button" class="btn-ghost" data-cancel="job">Cancelar</button>
+            <button type="button" class="btn-primary" data-save="job">Guardar</button>
+          </div>
+        </form>
+
+        <div class="entry-list" id="list-job"></div>
+      </section>
+
+      <!-- HABILIDADES -->
+      <section class="panel" id="panel-habilidades">
+        <div class="section-head">
+          <h2>Habilidades</h2>
+          <button class="add-btn" type="button" data-add="skill">+ Agregar habilidad</button>
+        </div>
+
+        <form class="entry-form" id="form-skill">
+          <h3 id="form-skill-title">Agregar habilidad</h3>
+          <div class="field-grid">
+            <div class="field">
+              <label>Tipo</label>
+              <select id="skill-type">
+                <option value="Técnica">Técnica</option>
+                <option value="Idioma">Idioma</option>
+              </select>
+            </div>
+            <div class="field"><label>Nombre</label><input type="text" id="skill-name" placeholder="Ejemplo: JavaScript, Inglés"></div>
+            <div class="field">
+              <label>Nivel</label>
+              <select id="skill-level">
+                <option value="Básico">Básico</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Avanzado">Avanzado</option>
+                <option value="Nativo/Experto">Nativo / Experto</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-ghost" data-cancel="skill">Cancelar</button>
+            <button type="button" class="btn-primary" data-save="skill">Guardar</button>
+          </div>
+        </form>
+
+        <div class="entry-list" id="list-skill"></div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer class="hint">Los cambios se guardan automáticamente en este navegador.</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
